@@ -12,8 +12,12 @@
 
 (defonce app-state (atom {:text "Hello world!"}))
 
-#_(rum/defc table-week < rum/reactive []
-  [])
+(rum/defc table-week < rum/reactive []
+  [:div
+   [:div
+    [:h3 "Week 15"]
+    [:span "2nd Oct - 8th Oct, 2015"]]])
+
 
 (rum/defcs stateful < (rum/local 0) [state title]
   (let [local (:rum/local state)]
@@ -22,9 +26,9 @@
      title ": " @local]))
 
 
-
 (defn on-js-reload []
   ;(rum/mount (label "texxxt") (el "report-table"))
-  (rum/mount (stateful "Clicks count") (el "click-counter"))
+  (rum/mount (table-week) (el "report-table"))
+  ;(rum/mount (stateful "Clicks count") (el "click-counter"))
 )
 
